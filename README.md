@@ -1,48 +1,48 @@
-# Antimóvil — caja anti-móvil con Arduino
+# Antimóvil — Arduino phone-detox box
 
-Una caja donde guardas el teléfono para desconectar un rato. Un sensor
-ultrasónico detecta que el móvil está dentro, arranca un temporizador de
-30 minutos y, si lo sacas antes de tiempo, el buzzer pita hasta que lo
-devuelves. Si aguantas, suena una melodía de victoria.
+A box where you put your phone to disconnect for a while. An ultrasonic
+sensor detects the phone inside, a 30-minute timer starts and, if you take
+the phone out early, the buzzer keeps beeping until you put it back. If you
+hold on, a victory melody plays.
 
-## Cómo funciona
+## How it works
 
-1. Metes el móvil en la caja. Cuando el sensor lo detecta a menos de 5 cm,
-   espera 5 segundos y suena la melodía de inicio.
-2. Empieza el temporizador de 30 minutos.
-3. Si durante ese tiempo el sensor deja de ver el móvil (más de 25 cm),
-   el buzzer se queda pitando y quedas marcado como tramposo.
-4. Al terminar el tiempo, si no has hecho trampa, suena la melodía de logro
-   y la caja se reinicia para la siguiente sesión.
+1. Put the phone in the box. When the sensor detects it closer than 5 cm,
+   it waits 5 seconds and plays the start melody.
+2. The 30-minute timer starts.
+3. If the sensor stops seeing the phone (farther than 25 cm) during that
+   time, the buzzer stays on and you are flagged as a cheater.
+4. When the time is up, if you did not cheat, the victory melody plays and
+   the box resets for the next session.
 
-La duración se ajusta en `timerDuration` (en milisegundos) dentro del sketch.
+The duration is set in `timerDuration` (in milliseconds) inside the sketch.
 
-## Componentes
+## Components
 
-| Componente | Notas |
+| Component | Notes |
 |---|---|
-| Arduino (UNO o Nano) | Cualquier placa con 3 pines digitales libres |
-| Sensor ultrasónico HC-SR04 | Detecta si el móvil está dentro |
-| Buzzer pasivo | Melodías y alarma |
-| Cables y alimentación | USB o pila |
+| Arduino (UNO or Nano) | Any board with 3 free digital pins |
+| HC-SR04 ultrasonic sensor | Detects whether the phone is inside |
+| Passive buzzer | Melodies and alarm |
+| Wires and power | USB or battery |
 
-### Conexiones
+### Wiring
 
-| Pin Arduino | Componente |
+| Arduino pin | Component |
 |---|---|
 | 11 | HC-SR04 `TRIG` |
 | 10 | HC-SR04 `ECHO` |
 | 9 | Buzzer |
 
-## Archivos
+## Files
 
-- `código/caja_antimovil.ino` — sketch de Arduino.
-- `3D models/caja.stl` — cuerpo de la caja.
-- `3D models/cama-movil.stl` — cama donde se apoya el móvil.
+- `código/caja_antimovil.ino` — Arduino sketch.
+- `3D models/caja.stl` — box body.
+- `3D models/cama-movil.stl` — bed where the phone rests.
 
-## Montaje
+## Build
 
-1. Imprime los dos modelos STL.
-2. Conecta el sensor y el buzzer según la tabla de pines.
-3. Carga `caja_antimovil.ino` desde el IDE de Arduino.
-4. Coloca el sensor apuntando a la cama del móvil y cierra la caja.
+1. Print both STL models.
+2. Wire the sensor and the buzzer following the pin table.
+3. Upload `caja_antimovil.ino` from the Arduino IDE.
+4. Point the sensor at the phone bed and close the box.
